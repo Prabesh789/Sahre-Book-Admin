@@ -1,7 +1,9 @@
 import 'package:admin_sharebook/login_page/login_page.dart';
+import 'package:admin_sharebook/utils/init.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  await AppInit.initialize();
   runApp(MyApp());
 }
 
