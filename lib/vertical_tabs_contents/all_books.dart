@@ -43,8 +43,6 @@ class _AllBooksState extends State<AllBooks> {
                   child: Column(
                     children: <Widget>[
                       Container(
-                        height: size.height / 3,
-                        width: size.width,
                         child: CachedNetworkImage(
                           imageUrl: snapshots.data.docs[index]['bookImage'],
                           fit: BoxFit.cover,
@@ -72,6 +70,21 @@ class _AllBooksState extends State<AllBooks> {
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
+                                // Row(
+                                //   children: [
+                                //     Text(
+                                //       "Uploaded By: ",
+                                //       style: TextStyle(
+                                //         color: Colors.black,
+                                //         fontSize: 16,
+                                //       ),
+                                //     ),
+                                //     Text(
+                                //       snapshots.data.docs[index]['fullName']
+                                //           .toUpperCase(),
+                                //     ),
+                                //   ],
+                                // ),
                                 Row(
                                   children: [
                                     Text(
@@ -79,6 +92,7 @@ class _AllBooksState extends State<AllBooks> {
                                       style: TextStyle(
                                         color: Colors.black,
                                         fontSize: 16,
+                                        fontWeight: FontWeight.w600,
                                       ),
                                     ),
                                     Text(
@@ -96,10 +110,33 @@ class _AllBooksState extends State<AllBooks> {
                                 Row(
                                   children: [
                                     Text(
+                                      "Book Type: ",
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                    Text(
+                                      snapshots
+                                          .data.docs[index]['selectedBookType']
+                                          .toUpperCase(),
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 4),
+                                Row(
+                                  children: [
+                                    Text(
                                       "Published Date: ",
                                       style: TextStyle(
                                         color: Colors.black,
                                         fontSize: 14,
+                                        fontWeight: FontWeight.w600,
                                       ),
                                     ),
                                     Text(
@@ -107,7 +144,7 @@ class _AllBooksState extends State<AllBooks> {
                                           ['publishedDate'],
                                       style: TextStyle(
                                         color: Colors.teal[700],
-                                        fontWeight: FontWeight.bold,
+                                        fontWeight: FontWeight.w600,
                                       ),
                                     ),
                                   ],
@@ -117,13 +154,43 @@ class _AllBooksState extends State<AllBooks> {
                             Spacer(),
                             Column(
                               children: [
-                                Text(
-                                  snapshots.data.docs[index]['shareType'],
-                                  style: TextStyle(color: Colors.black),
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "On ",
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                    Text(
+                                      snapshots.data.docs[index]['shareType'],
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                                Text(
-                                  snapshots.data.docs[index]['amount'],
-                                  style: TextStyle(color: Colors.black),
+                                Row(
+                                  children: [
+                                    Text(
+                                      "Price: ",
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                    Text(
+                                      snapshots.data.docs[index]['amount'],
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ],
                             )

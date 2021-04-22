@@ -1,9 +1,11 @@
 import 'package:admin_sharebook/cover_widget/cover_widget.dart';
+import 'package:admin_sharebook/login_page/login_page.dart';
 import 'package:admin_sharebook/vertical_tabs_contents/about_admin.dart';
 import 'package:admin_sharebook/vertical_tabs_contents/all_books.dart';
 import 'package:admin_sharebook/vertical_tabs_contents/all_users.dart';
 import 'package:admin_sharebook/vertical_tabs_contents/notification.dart';
 import 'package:admin_sharebook/vertical_tabs_contents/settings.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:vertical_tabs/vertical_tabs.dart';
 
@@ -42,6 +44,36 @@ class _MainDashboardState extends State<MainDashboard> {
             fontSize: 25,
           ),
         ),
+        actions: [
+          InkWell(
+            onTap: () async {
+              await FirebaseAuth.instance.signOut().then((value) {
+                Navigator.of(context).pushReplacement(
+                    new MaterialPageRoute(builder: (BuildContext context) {
+                  return LoginPage();
+                }));
+              });
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: Center(
+                child: Row(
+                  children: [
+                    Icon(Icons.logout),
+                    SizedBox(width: 10),
+                    Text(
+                      "Log Out",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                    SizedBox(width: 35),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
       body: SafeArea(
         child: Column(

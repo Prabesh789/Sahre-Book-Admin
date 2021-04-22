@@ -15,8 +15,14 @@ class _AdminNotificationState extends State<AdminNotification> {
             child: Text("No any Notification yet."),
           ),
         ),
-        Container(
-          child: Image.asset('assets/chat.gif'),
+        Align(
+          alignment: Alignment.bottomRight,
+          child: Container(
+            height: 100,
+            child: Image.asset(
+              'assets/chat.gif',
+            ),
+          ),
         ),
       ],
     );
