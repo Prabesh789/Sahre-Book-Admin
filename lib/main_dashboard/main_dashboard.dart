@@ -1,5 +1,6 @@
 import 'package:admin_sharebook/cover_widget/cover_widget.dart';
 import 'package:admin_sharebook/vertical_tabs_contents/about_admin.dart';
+import 'package:admin_sharebook/vertical_tabs_contents/all_books.dart';
 import 'package:admin_sharebook/vertical_tabs_contents/all_users.dart';
 import 'package:admin_sharebook/vertical_tabs_contents/notification.dart';
 import 'package:admin_sharebook/vertical_tabs_contents/settings.dart';
@@ -15,6 +16,7 @@ class _MainDashboardState extends State<MainDashboard> {
   int _pageIndex = 0;
   final List<String> titles = [
     'All Users',
+    'All Uploaded Books',
     'Notification',
     'About Admin',
     'Settings'
@@ -22,6 +24,7 @@ class _MainDashboardState extends State<MainDashboard> {
 
   final List icons = [
     Icons.verified_user,
+    Icons.book,
     Icons.notifications,
     Icons.admin_panel_settings,
     Icons.settings,
@@ -63,6 +66,7 @@ class _MainDashboardState extends State<MainDashboard> {
                   },
                   contents: <Widget>[
                     CoverWidget(widget: Allsuers()),
+                    CoverWidget(widget: AllBooks()),
                     CoverWidget(widget: AdminNotification()),
                     CoverWidget(widget: AboutAdmin()),
                     CoverWidget(widget: Settings()),
@@ -72,6 +76,7 @@ class _MainDashboardState extends State<MainDashboard> {
                     tab(titles[1], icons[1]),
                     tab(titles[2], icons[2]),
                     tab(titles[3], icons[3]),
+                    tab(titles[4], icons[4]),
                   ],
                 ),
               ),

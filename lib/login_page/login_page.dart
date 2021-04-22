@@ -13,8 +13,10 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final _formkey = GlobalKey<FormState>();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController emailController =
+      TextEditingController(text: "admin123@gmail.com");
+  final TextEditingController passwordController =
+      TextEditingController(text: "admin123");
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AdminBloc, AdminState>(
