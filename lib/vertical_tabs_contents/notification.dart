@@ -8,23 +8,22 @@ class AdminNotification extends StatefulWidget {
 class _AdminNotificationState extends State<AdminNotification> {
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          child: Center(
-            child: Text("No any Notification yet."),
-          ),
-        ),
-        Align(
-          alignment: Alignment.bottomRight,
-          child: Container(
-            height: 100,
-            child: Image.asset(
-              'assets/chat.gif',
+    return Container(
+      child: Center(
+        child: Column(
+          children: <Widget>[
+            Align(
+              alignment: Alignment.bottomRight,
+              child: Center(
+                child: Image.asset(
+                  'assets/chat.gif',
+                ),
+              ),
             ),
-          ),
+            Text("No any Notification yet."),
+          ],
         ),
-      ],
+      ),
     );
   }
 }
